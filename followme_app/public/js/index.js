@@ -1,15 +1,18 @@
+//mui初始化
 mui.init();
 var _index = 0;
 //var subpages = ['home/home.html', 'message/message.html', 'account/me.html'];
 
+//除了主页面其余页面的样式
 function navigationBarStyle(index) {
+
 	var subpage_style = {
 		top: '0px',
 		bottom: '51px'
 	};
 
 	//var _titles = ['首页', '消息', '个人中心']
-	if(1) { //index != 
+	if(1) { 			//index != 
 		subpage_style['titleNView'] = {
 			titleText: _titles[index],
 			titleColor: "#FFFFFF", // 字体颜色,颜色值格式为"#RRGGBB",默认值为"#000000"
@@ -21,12 +24,12 @@ function navigationBarStyle(index) {
 			},
 		}
 	}
-
 	return subpage_style;
 }
 
 var aniShow = {};
 
+//mui加载框架元素成功之后执行此函数
 //创建子页面，首个选项卡页面显示，其它均隐藏；
 mui.plusReady(function() {
 	var h = plus.nativeUI.showWaiting();
@@ -38,18 +41,21 @@ mui.plusReady(function() {
 	plus.navigator.closeSplashscreen();
 	plus.navigator.setFullscreen(false);
 
+	//获取当前窗口对象
 	var self = plus.webview.currentWebview();
-	for(var i = 0; i < 5; i++) {
+	for(var i = 0; i < 3; i++) {
 		var temp = {};
 		var _style = navigationBarStyle(i);
 		var sub = plus.webview.create(subpages[i], subpages[i], _style);
 		if(i > 0) {
+			//除去首页，其余页面全都隐藏
 			sub.hide();
 		} else {
 			// 						temp[subpages[i]] = "true";
 			// 						mui.extend(aniShow,temp);
 			// 						setTitle('首页')
 		}
+		//把子页面添加到当前窗口对象里
 		self.append(sub);
 	}
 
@@ -59,30 +65,22 @@ mui.plusReady(function() {
 
 });
 
-function setTitle(t) { //
-	// 				var wv = plus.webview.currentWebview();
-	// 				wv.setStyle({
-	// 					titleNView: {
-	// 						titleText: t
-	// 					}
-	// 				});
-}
-
 //当前激活选项
+//获取当前第一个页面
 var activeTab = subpages[0];
 var title = document.getElementById("title");
-//选项卡点击事件
+
+//给底部table 选项卡添加单机监听事件,	选项卡点击事件
 mui('.mui-bar-tab').on('tap', 'a', function(e) {
+	//获取目标路径
 	var targetTab = this.getAttribute('href');
+	//如果当前地址是index.html目标地址也是index.html
 	if(targetTab == activeTab) {
 		return;
 	}
 
 	//更换标题
 	//title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
-
-	var t = this.querySelector('.mui-tab-label').innerHTML;
-	setTitle(t)
 
 	//显示目标选项卡
 	//若为iOS平台或非首次显示，则直接显示
@@ -100,9 +98,10 @@ mui('.mui-bar-tab').on('tap', 'a', function(e) {
 	//更改当前活跃的选项卡
 	activeTab = targetTab;
 });
+
 //自定义事件，模拟点击“首页选项卡”
 document.addEventListener('gohome', function() {
-	var defaultTab = document.getElementById("defaultTab");
+	var defaultTab = document.getElementById("homeTab");
 	//模拟首页点击
 	mui.trigger(defaultTab, 'tap');
 	//切换选项卡高亮
@@ -112,3 +111,4 @@ document.addEventListener('gohome', function() {
 		defaultTab.classList.add('mui-active');
 	}
 });
+
