@@ -125,5 +125,34 @@
 				}
 			}
 		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"home/recommend.html"
+				],
+				"refer": [
+					"account/me.html",
+					"message/message.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"public/fonts/iconfont.ttf",
+				"public/js/appconstant.js",
+				"public/css/mui.css",
+				"public/js/update.js",
+				"public/css/mui.min.css",
+				"public/css/iconfont.css",
+				"public/js/mui.min.js",
+				"public/css/index.css",
+				"public/fonts/mui.ttf",
+				"public/js/index.js",
+				"public/js/mui.js"
+			]
+		}
 	}
 }
