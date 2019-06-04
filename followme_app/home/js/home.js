@@ -1,14 +1,3 @@
-/*mui.init({
-	subpages: [{ //下边是初始化，然后这个页面显示我们将插入的页面
-		url: "recommend.html",
-		id: "recommend.html",
-		styles: {
-			top: "50px",
-			bottom: "0px"
-		}
-	}]
-})*/
-
 //mui初始化
 mui.init();
 //mui加载框架元素成功之后执行此函数
@@ -18,12 +7,12 @@ mui.plusReady(function() {
 	var group = new webviewGroup(_self.id, {
 		/*items数组中传入的是子页对应选项卡该导入的子页面的id，有几个子页就添加几个子页，中间用逗号分隔*/
 		items: [{
-			id: "recommend.html", //这是子页1的路径
-			url: "recommend.html",
+			id: "indexRecommend.html", //这是子页1的路径
+			url: "indexRecommend.html",
 			extras: {}
 		}, {
-			id: "actType.html", //这是子页2的路径
-			url: "actType.html",
+			id: "indexActType.html", //这是子页2的路径
+			url: "indexActType.html",
 			extras: {}
 		}],
 		onChange: function(obj) {

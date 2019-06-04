@@ -79,6 +79,7 @@ body {
 	width: 40px;
 }
 
+/*tab选项卡的样式*/
 .mui-slider-indicator.mui-segmented-control {
 	background-color: #efeff4;
 }
