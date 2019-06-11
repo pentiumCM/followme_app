@@ -5,13 +5,6 @@ body {
 	background-color: #efeff4;
 }
 
-#main {
-	height: 100%;
-}
-
-#main #header {
-	height: 6%;
-}
 
 
 /* 顶部头像，推荐，活动等高度与header高度一致 */
@@ -62,32 +55,9 @@ body {
 	
 }
 
-#pullrefresh {
-	margin-top: 15px;
-	height: 70%;
-	width: 100%;
-}
 
 #pullrefresh .Checkbox {
 	border: 1px solid #A6A6A6;
 	border-radius: 70%;
 }
 
-
-/* 底部 */
-/*
-#footer {
-	background-color: #FF5500;
-	height: 50px;
-	bottom: 0;
-	width: 100%;
-}
-
-li {
-	list-style: none;
-}
-
-#navigate img {
-	width: auto;
-	height: 30px;
-}*/
