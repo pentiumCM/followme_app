@@ -29,7 +29,7 @@ function pullupRefresh() {
 		console.log("标识：", isOver);
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh(isOver); //参数为true代表没有更多数据了。
 		mui.ajax({
-			url: 'http://192.168.1.115:8080/followme/query/queryGif',
+			url: _base_url + 'followme/query/queryGif',
 			type: 'post', //HTTP请求类型
 			/*		headers: {
 						'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ function pullupRefresh() {
 						table.appendChild(li);*/
 						
 						/*渲染图片*/
-						content='<div id="videos" class="mui-col-xs-6 "><img src="http:'+p_gif+'"> <p>'
+						content='<div id="videos" class="mui-col-xs-6 "><img src="'+ _base_url +p_gif+'"> <p>'
 								+p_clubName+'</p><br/><p><input name="checkbox" type="checkbox" class="Checkbox"><label>'+p_clubName+'</label>&nbsp;<label>￥'+p_actCost+'</label></p></div>'
 						li.innerHTML=content
 						table.appendChild(li);
@@ -88,7 +88,6 @@ function pullupRefresh() {
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				console.log("请求失败!!！" + textStatus);
-				/*$loadingToast.fadeOut(100);*/
 			}
 		})
 	}, 1000);

@@ -1,75 +1,79 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 	<head>
-		<meta charset="UTF-8">
-		<!--适应移动端-->
-		<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-		<link href="../css/mui.min.css" rel="stylesheet" />
-		<link href="static/css/person.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="../public/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/profile.css" />
+
 	</head>
 
 	<body>
-		<!--主体部分-->
+
 		<div class="mui-content">
-			<div class="container-main">
-				<div class="div_item">
-					<div class="div_input div_left">
-						<span class="span_show">用&nbsp;&nbsp;户&nbsp;&nbsp;名:</span>
-						<i-input type="text" placeholder="请输入用户名" v-model="loginName" size="large" clearable class="long_input" readonly/>
+			<div id="user-baseinfo-id" v-cloak>
+				<div v-if="!login" id="user-login-id" class="mui-navigate-right" style="height: 120px;background-color: white;margin-bottom: 8px;">
+					<div style="padding-top: 40px;padding-left: 20px;display: inline-block;float: left;">
+						<img src="images/default_sdk_login@2x.png" width="60px" height="60px">
 					</div>
-					<div class="error_font div_right">{{loginNameFindErr}}</div>
-				</div>
 
-				<div class="div_item">
-					<div class="div_input div_left">
-						<span class="span_show">手机号码: </span>
-						<i-input type="text" placeholder="请输入绑定的手机号码" v-model="phone" size="large" clearable class="long_input" readonly/>
+					<div style="float: left;margin-top: 60px;margin-left: 15px; display: inline-block; font-size: 15px; color: #888888;">
+						请前往登录
 					</div>
-				</div>
 
-				<div class="div_item">
-					<div class="div_input div_left">
-						<span class="span_show">手机验证码: </span> <span> <i-input
-						type="text" placeholder="请输入验证码" @on-blur="checkMsgCode()"
-						v-model="msgCode" size="large" clearable class="short_input" />
-						</span> <span> <i-button size="large" @click="sendMessage"
-												 :disabled="btnDisabled" class="code_button">{{btnSendCode}}</i-button>
-						</span>
-					</div>
-					<div class="error_font div_right">{{msgCodeErr}}</div>
-				</div>
-
-				<div class="div_item">
-					<div class="div_input div_left">
-						<span class="span_show">密&nbsp;&nbsp;&nbsp;&nbsp;码:</span>
-						<i-input type="password" placeholder="请输入密码" v-model="password" size="large" clearable class="long_input" @on-blur="checkPassword()" />
-					</div>
-					<div class="error_font div_right">{{passwordErr}}</div>
-				</div>
-
-				<div class="div_item">
-					<div class="div_input div_left">
-						<span class="span_show">密码确认:</span>
-						<i-input type="password" placeholder="请再次输入密码" v-model="password1" size="large" clearable="true" class="long_input" @on-blur="compare()" />
-					</div>
-					<div class="error_font div_right">{{passwordErr1}}</div>
-				</div>
-
-				<div class="div_item">
-					<div class="div_input div_left">
-						<i-button id="btnForget" type="info" @click="checkForget" long class="forget_button">重置密码 </i-button>
-						<!-- <i-button data-dismiss="modal" class="close_button" onclick="refreshLogin()">取消
-                </i-button> -->
+					<div style="float: right;margin-top: 60px;margin-right: 15px;">
+						<img src="images/arrow_icon@2x.png" width="20px" height="20px">
 					</div>
 				</div>
 			</div>
+			<!--分隔线-->
+			<HR align=center width=300 color=#987cb9 SIZE=1>
+
+			<div class="list-title" >我的订单</div>
+			<HR align=center width=300 color=#987cb9 SIZE=1>
+
+			<div id="orderType">
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style="margin-top: 0px;padding-left: 0px;padding-right: 0px;padding-top: 20px;padding-bottom: 5px;  background-color: white;">
+					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 25%;">
+						<a style="margin: auto;" onclick="tableDidSelected(1 , '全部订单');">
+							<img src="../images/heme-top2.png" alt="">
+							<div id="00" class="mui-media-body">全部订单</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
+						<a href="#" onclick="tableDidSelected(11 , '待付款');">
+							<img src="../images/heme-top2.png" alt="">
+							<div class="mui-media-body">待付款</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
+						<a href="#" onclick="tableDidSelected(12 , '未使用');">
+							<img src="../images/heme-top3.png" alt="">
+							<div class="mui-media-body">未使用</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
+						<a href="#" onclick="tableDidSelected(13 , '已结束');">
+							<img src="../images/heme-top4.png" alt="">
+							<div class="mui-media-body">已结束</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 25%;">
+						<a href="#" onclick="tableDidSelected(13 , '取消/退款');">
+							<img src="../images/heme-top4.png" alt="">
+							<div class="mui-media-body">取消/退款</div>
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 
+		<script src="../public/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/profile.js" type="text/javascript" charset="UTF-8"></script>
 	</body>
-	<script src="static/js/person.js"></script>
 
 </html>
