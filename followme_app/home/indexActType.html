@@ -10,38 +10,32 @@
 
 		<link href="../public/css/mui.min.css" rel="stylesheet" />
 		<link href="css/indexActType.css" rel="stylesheet" />
-				<!-- 新 Bootstrap 核心 CSS 文件 -->
-	    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-	    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-	    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-	    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	</head>
 
 	<body>
+
 		<!--主体部分-->
+
 		<div class="mui-content">
-
-				<!--搜索部分-->
-				<div id="search" class="row">
-					<!--<div id="searchBar" class="col-xs-9">
-						<input id="inputsearch" type="text" class="form-control" placeholder="国内赏花指南">
-					</div>-->
-
-					<div id="searchBar" class=" col-xs-9">
-						<input id="inputsearch" type="search" class="mui-input-clear whiteBg" placeholder="国内赏花指南">
-					</div>
-
-					<div id="" class="col-xs-1"></div>
-					<div id="showBar" class="col-xs-2">
-						<label>北京</label>
-					</div>
+			<!--搜索部分-->
+			<div id="search" class=" mui-row">
+				<div id="searchBar" class="mui-col-xs-9">
+					<input id="inputsearch" type="search" class="mui-input-clear whiteBg" placeholder="国内赏花指南">
 				</div>
-
-
+				<div id="" class="mui-col-xs-1"></div>
+				<div id="showBar" class="mui-col-xs-2">
+					<label>北京</label>
+				</div>
+			</div>
 
 			<!--内容展现部分，每行三个-->
-			<div id="content" class="row">
+<!--			<div id="content" class="row">
 				<div id="" class="col-xs-4">
 					<div class="thumbnail">
 						<div class="caption">
@@ -49,39 +43,13 @@
 						</div>
 					</div>
 				</div>
-				<div id="" class="col-xs-4">
-					<div class="thumbnail">
-						<div class="caption">
-							<p>gif动画文字描述</p>
-						</div>
-					</div>
-				</div>
-				<div id="" class="col-xs-4">
-					<div class="thumbnail">
-						<div class="caption">
-							<p>gif动画文字描述</p>
-						</div>
-					</div>
-				</div>
-				<div id="" class="col-xs-4">
-					<div class="thumbnail">
-						<div class="caption">
-							<p>gif动画文字描述</p>
-						</div>
-					</div>
-				</div>
-				<div id="" class="col-xs-4">
-					<div class="thumbnail">
-						<div class="caption">
-							<p>gif动画文字描述</p>
-						</div>
-					</div>
-				</div>
-				<div id="" class="col-xs-4">
-					<div class="thumbnail">
-						<div class="caption">
-							<p>gif动画文字描述</p>
-						</div>
+			</div>-->
+			<!--下拉刷新容器-->
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<!--下拉刷新需要使用统一的DOM结构即下拉刷新只会滚动mui-scroll容器-->
+				<div class="mui-scroll">
+					<div class="mui-table-view mui-table-view-chevron">
+						<!--动态加载数据-->
 					</div>
 				</div>
 			</div>
