@@ -12,6 +12,17 @@ mui.init({
 		}
 	}
 });
+mui.plusReady(function() {
+	pullupRefresh();
+	
+
+	document.getElementById('info').addEventListener('tap', function() {
+		mui.openWindow({
+			url: '../detailAct/detailMain.html', //通过URL传参
+		})
+	});
+
+})
 
 /**
  * 上拉加载具体业务实现
@@ -43,37 +54,37 @@ function pullupRefresh() {
 
 			success: function(data) {
 				console.log(data);
-				var content=''
+				var content = ''
 				if(data.code == 200) { //查询成功
 
-					var table = document.body.querySelector('.mui-table-view');   //返回匹配的第一个元素
-					/*var cells = document.body.querySelectorAll('.mui-table-view-cell');  *///返回匹配的元素集合
+					var table = document.body.querySelector('.mui-table-view'); //返回匹配的第一个元素
+					/*var cells = document.body.querySelectorAll('.mui-table-view-cell');  */ //返回匹配的元素集合
 					console.log("列表数据长度：", data.obj.list.length);
 					for(var i = 0; i < data.obj.list.length; i++) {
 						var item = data.obj.list[i];
 						if(item) {
-							var p_id = item.actID;          //俱乐部ID
-							var p_gif = item.gifPath;       //俱乐部视频地址
+							var p_id = item.actID; //俱乐部ID
+							var p_gif = item.gifPath; //俱乐部视频地址
 							var p_clubName = item.clubName; //俱乐部名称
-							var p_actCost=item.actCost;     //活动金额
+							var p_actCost = item.actCost; //活动金额
 						}
 
 						var li = document.createElement('div');
 						li.className = 'mui-table-view-cell';
-						
-                        
+
 						/*渲染video标签*/
 						/*li.innerHTML = '<video controls="" autoplay="" name="media" width="100%"><source src="'+p_gif+'" type="video/mp4"></video>';*/
-/*						content='<div id="videos" class="mui-col-xs-6 "><video  autoplay="true" width="100%"><source src="'+p_gif+'" type="video/mp4"></video> <div class="caption"><p>'
-								+p_clubName+'</p><p><input name="checkbox" type="checkbox" class="Checkbox"><label>'+p_clubName+'</label>&nbsp;<label>'+p_actCost+'</label></p></div>'
-						li.innerHTML=content
-						table.appendChild(li);*/
-						
+						/*						content='<div id="videos" class="mui-col-xs-6 "><video  autoplay="true" width="100%"><source src="'+p_gif+'" type="video/mp4"></video> <div class="caption"><p>'
+														+p_clubName+'</p><p><input name="checkbox" type="checkbox" class="Checkbox"><label>'+p_clubName+'</label>&nbsp;<label>'+p_actCost+'</label></p></div>'
+												li.innerHTML=content
+												table.appendChild(li);*/
+
 						/*渲染图片*/
-						content='<div id="videos" class="mui-col-xs-6 "><img src="'+ _base_url +p_gif+'"> <p>'
-								+p_clubName+'</p><br/><p><input name="checkbox" type="checkbox" class="Checkbox"><label>'+p_clubName+'</label>&nbsp;<label>￥'+p_actCost+'</label></p></div>'
-						li.innerHTML=content
+						content = '<div id="videos" class="mui-col-xs-6 "><img src="' + _base_url + p_gif + '"> <p>' +
+							p_clubName + '</p><br/><p><input name="checkbox" type="checkbox" class="Checkbox"><label>' + p_clubName + '</label>&nbsp;<label>￥' + p_actCost + '</label></p></div>'
+						li.innerHTML = content
 						table.appendChild(li);
+						/*$("#content").html(content);*/
 					}
 					//判断是否还有数据,若小于每次加载条数,结束
 					if(data.obj.list.length < pageSize) {
@@ -91,3 +102,4 @@ function pullupRefresh() {
 		})
 	}, 1000);
 }
+
