@@ -29,7 +29,7 @@ function pullupRefresh() {
 		console.log("标识：", isOver);
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh(isOver); //参数为true代表没有更多数据了。
 		mui.ajax({
-			url: 'http://192.168.1.105:8080/followme/query/queryGif',
+			url: _base_url + 'followme/query/queryGif',
 			type: 'post', //HTTP请求类型
 			/*		headers: {
 						'Content-Type': 'application/json'
@@ -43,25 +43,36 @@ function pullupRefresh() {
 
 			success: function(data) {
 				console.log(data);
+				var content=''
 				if(data.code == 200) { //查询成功
 
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					var table = document.body.querySelector('.mui-table-view');   //返回匹配的第一个元素
+					/*var cells = document.body.querySelectorAll('.mui-table-view-cell');  *///返回匹配的元素集合
 					console.log("列表数据长度：", data.obj.list.length);
 					for(var i = 0; i < data.obj.list.length; i++) {
 						var item = data.obj.list[i];
 						if(item) {
-							var p_id = item.actID;
-							var p_gif = item.gifPath;
-							var p_clubName = item.clubName;
+							var p_id = item.actID;          //俱乐部ID
+							var p_gif = item.gifPath;       //俱乐部视频地址
+							var p_clubName = item.clubName; //俱乐部名称
+							var p_actCost=item.actCost;     //活动金额
 						}
 
-						var li = document.createElement('li');
+						var li = document.createElement('div');
 						li.className = 'mui-table-view-cell';
-
+						
+                        
 						/*渲染video标签*/
 						/*li.innerHTML = '<video controls="" autoplay="" name="media" width="100%"><source src="'+p_gif+'" type="video/mp4"></video>';*/
-						li.innerHTML = '<a class="mui-navigate-right">俱乐部ID： ' + p_id + '</a>';
+/*						content='<div id="videos" class="mui-col-xs-6 "><video  autoplay="true" width="100%"><source src="'+p_gif+'" type="video/mp4"></video> <div class="caption"><p>'
+								+p_clubName+'</p><p><input name="checkbox" type="checkbox" class="Checkbox"><label>'+p_clubName+'</label>&nbsp;<label>'+p_actCost+'</label></p></div>'
+						li.innerHTML=content
+						table.appendChild(li);*/
+						
+						/*渲染图片*/
+						content='<div id="videos" class="mui-col-xs-6 "><img src="'+ _base_url +p_gif+'"> <p>'
+								+p_clubName+'</p><br/><p><input name="checkbox" type="checkbox" class="Checkbox"><label>'+p_clubName+'</label>&nbsp;<label>￥'+p_actCost+'</label></p></div>'
+						li.innerHTML=content
 						table.appendChild(li);
 					}
 					//判断是否还有数据,若小于每次加载条数,结束
@@ -76,7 +87,6 @@ function pullupRefresh() {
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				console.log("请求失败!!！" + textStatus);
-				$loadingToast.fadeOut(100);
 			}
 		})
 	}, 1000);
