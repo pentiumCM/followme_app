@@ -1,0 +1,65 @@
+html,
+body {
+	background-color: #efeff4;
+	height: 100%;
+}
+
+#content{
+ margin: 10px;
+ height: 100%;
+/* border: 1px solid #0000FF;	*/
+
+}
+
+#exit{
+	width: 100%;
+	height:10%;
+}
+
+#exit img{
+	width: 30px;
+	height:30px;
+	float: right;
+}
+
+#image{
+	width:100%;
+	height:30%;
+}
+
+#actIntro{
+	width: 100%;
+	height:20%;
+}
+
+#actIntro h3{
+	margin-top:10px;
+	margin-bottom: 20px;
+}
+#actIntro span{
+	border-right:1px solid #8391A5;
+	float: left;
+	padding-left: 2px;
+}
+
+#actIntro label{
+	font-size: 0.1em;
+}
+
+#select 
+{
+	width:100%;
+	height:20px;
+	background-color: #AAAAAA;
+}
+#select h6{
+	height:10px;
+	float:left;
+}
+
+#select img{
+	width:10px;
+	height:10px;
+	overflow: hidden;
+	float: right;
+}

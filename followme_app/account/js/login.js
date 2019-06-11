@@ -1,3 +1,5 @@
+mui.init({});
+
 //var homePage = "/test/course_info";
 var homePage = "../home/home.html";
 //访问路径第一层

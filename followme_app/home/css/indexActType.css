@@ -43,20 +43,39 @@ body {
 	letter-spacing: 1px;
 }
 
-#content {
+
+#pullrefresh {
+	margin-top: 10%;
+	height: 100%;
+	width: 100%;
+    background-color: #00FF00;
+	
+}
+
+/*每个子div*/
+.mui-table-view-cell{
+	width:50%;
+	height: 250px;   
+	float:left;
+	display: inline-block;
+/*	border: 1px solid #E13D13;*/
+	
+}
+
+#pullrefresh {
 	margin-top: 15px;
 	height: 70%;
 	width: 100%;
 }
 
-#content .Checkbox {
+#pullrefresh .Checkbox {
 	border: 1px solid #A6A6A6;
 	border-radius: 70%;
 }
 
 
 /* 底部 */
-
+/*
 #footer {
 	background-color: #FF5500;
 	height: 50px;
@@ -71,4 +90,4 @@ li {
 #navigate img {
 	width: auto;
 	height: 30px;
-}
+}*/

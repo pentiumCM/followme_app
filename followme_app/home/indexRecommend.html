@@ -22,97 +22,32 @@
 	<body>
 
 		<!--主体部分-->
+
 		<div class="mui-content">
-			<div id="bodier">
-				<!--搜索部分-->
-				<div id="search" class="row">
-					<!--<div id="searchBar" class="col-xs-9">
-						<input id="inputsearch" type="text" class="form-control" placeholder="国内赏花指南">
-					</div>-->
-
-					<div id="searchBar" class="col-xs-9">
-						<input id="inputsearch" type="search" class="mui-input-clear whiteBg" placeholder="国内赏花指南">
-					</div>
-
-					<div id="" class="col-xs-1"></div>
-					<div id="showBar" class="col-xs-2">
-						<label>北京</label>
-					</div>
+			<!--搜索部分-->
+			<div id="search" class=" mui-row">
+				<div id="searchBar" class="mui-col-xs-9">
+					<input id="inputsearch" type="search" class="mui-input-clear whiteBg" placeholder="国内赏花指南">
 				</div>
-
-				<!--内容展现部分，每行两个-->
-				<div id="content" class="row">
-					<div id="imgs" class="col-xs-6">
-						<div class="thumbnail">
-							<img src="..." alt="...">
-							<div class="caption">
-								<p>gif动画文字描述</p>
-								<p>
-									<input name="checkbox" type="checkbox" class="Checkbox">
-									<label>俱乐部</label> &nbsp;
-									<label>¥300</label>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div id="" class="col-xs-6">
-						<div class="thumbnail">
-							<img src="..." alt="...">
-							<div class="caption">
-								<p>gif动画文字描述</p>
-								<p>
-									<input name="checkbox" type="checkbox" class="Checkbox">
-									<label>俱乐部</label> &nbsp;
-									<label>¥450</label>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div id="" class="col-xs-6">
-						<div class="thumbnail">
-							<img src="..." alt="...">
-							<div class="caption">
-								<p>gif动画文字描述</p>
-								<p>
-									<input name="checkbox" type="checkbox" class="Checkbox">
-									<label>俱乐部</label> &nbsp;
-									<label>¥339</label>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div id="" class="col-xs-6">
-						<div class="thumbnail">
-							<img src="..." alt="...">
-							<div class="caption">
-								<p>gif动画文字描述</p>
-								<p>
-									<input name="checkbox" type="checkbox" class="Checkbox">
-									<label>俱乐部</label> &nbsp;
-									<label>¥200</label>
-								</p>
-							</div>
-						</div>
-					</div>
+				<div id="" class="mui-col-xs-1"></div>
+				<div id="showBar" class="mui-col-xs-2">
+					<label>北京</label>
 				</div>
 			</div>
-
+			<!--内容展现部分，每行两个-->
 			<!--下拉刷新容器-->
 			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
 				<!--下拉刷新需要使用统一的DOM结构即下拉刷新只会滚动mui-scroll容器-->
 				<div class="mui-scroll">
-					<ul class="mui-table-view mui-table-view-chevron">
-						<li class="mui-table-view-cell">
-
-						</li>
-
-					</ul>
+					<div class="mui-table-view mui-table-view-chevron">
+                         <!--动态加载数据-->
+					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<script src="../public/js/mui.js"></script>
+		<script src="../public/js/appconstant.js" type="text/javascript" charset="UTF-8"></script>
 		<script src="js/indexRecommend.js" type="text/javascript" charset="UTF-8"></script>
 
 	</body>
