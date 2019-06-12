@@ -5,12 +5,8 @@ body {
 	background-color: #efeff4;
 }
 
-
-
-
-
 /* 顶部头像，推荐，活动等高度与header高度一致 */
-
+/*
 #main #header .col {
 	height: 100%;
 	text-align: center;
@@ -23,7 +19,7 @@ body {
 #main #header label {
 	height: 100%;
 	vertical-align: middle;
-}
+}*/
 
 #inputsearch {
 	border: none;
@@ -54,7 +50,14 @@ body {
 	float:left;
 	display: inline-block;
 /*	border: 1px solid #E13D13;*/
-	
+}
+
+/*消除默认线条样式*/
+.mui-table-view-cell:before{
+    height:0
+}
+.mui-table-view-cell:after{
+    height:0
 }
 
 /*子div中具体内容*/
@@ -79,21 +82,3 @@ body {
 }
 
 
-
-
-/* 底部 */
-/*#footer {
-	background-color: #FF5500;
-	height: 50px;
-	bottom: 0;
-	width: 100%;
-}*/
-
-/*li {
-	list-style: none;
-}
-
-#navigate img {
-	width: auto;
-	height: 30px;
-}*/

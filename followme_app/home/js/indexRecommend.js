@@ -12,6 +12,9 @@ mui.init({
 		}
 	}
 });
+mui.plusReady(function() {
+	pullupRefresh();
+})
 
 /**
  * 上拉加载具体业务实现
