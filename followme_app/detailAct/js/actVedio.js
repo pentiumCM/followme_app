@@ -1,3 +1,4 @@
+
 var actID = null;
 //mui初始化
 mui.init();
@@ -6,6 +7,7 @@ mui.plusReady(function() {
     
 	var _self = plus.webview.currentWebview();
 	actID = _self.actID;
+	console.log("vedio");
 	console.log("zi页面页面接收的id:",actID);
 	
 	pullupRefresh();
@@ -20,7 +22,7 @@ function pullupRefresh() {
 
 	setTimeout(function() {
 		mui.ajax({
-			url: _base_url + '/followme/query/queryActivityByActID',
+			url: _base_url + '/followme/query/queryActivityVedio',
 			type: 'post', //HTTP请求类型
 			/*		headers: {
 						'Content-Type': 'application/json'
@@ -33,17 +35,18 @@ function pullupRefresh() {
 
 			success: function(data) {
 				console.log(data.code);
-				console.log(_base_url + data.obj.pictureList[0].pictureUrl);
 				var content = ''
 				if(data.code == 200) { //查询成功
-					$("#pictureFirst").attr("src", _base_url + data.obj.pictureList[0].pictureUrl);
-					
+					document.getElementById("videoPath").src = _base_url + data.obj.vedioPath;
+					console.log(_base_url + data.obj.vedioPath);
+					document.getElementById("videoPath").play();
 					$("#beginTime").text(transformTime(data.obj.beginTime = +new Date()));
+					$("#clubName").text(data.obj.clubName);
+					//$("#description").text(data.obj.description);
+					$("#beginCity").text(data.obj.beginCity);
+					$("#actCost").text('￥'+data.obj.actCost);
 					
-					$("#actCurPerson").text(data.obj.actCurPerson);
-					$("#actCost").text(data.obj.actCost);
-					$("#gatherPlace").text(data.obj.gatherPlace);
-					
+
 				}
 					//判断是否还有数据,若小于每次加载条数,结束
 					//每次加载结束之后，如果还有数据则++,查询下一页数据

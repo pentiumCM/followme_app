@@ -46,4 +46,3 @@ mui.back = function() {
 	var _self = plus.webview.currentWebview();
 	_self.close("auto");
 }
-

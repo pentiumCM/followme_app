@@ -28,7 +28,7 @@ var isOver = false; //是否加载完,默认未加载完，true为已加载完
 		console.log("标识：", isOver);
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh(isOver);//参数为true代表没有更多数据了。
 		mui.ajax({
-			url: _base_url + 'followme/query/queryActivityType',
+			url: _base_url + '/followme/query/queryActivityType',
 			type: 'post', //HTTP请求类型
 			/*		headers: {
 						'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ var isOver = false; //是否加载完,默认未加载完，true为已加载完
 						li.className = 'mui-table-view-cell';
 						console.log(picUrl);
 						/*渲染图片*/
-						content='<div id="picture" class="mui-col-xs-6 "><img src="'+ _base_url +picUrl+'"><label>'+des+'</label></div>'
+						content='<div id="picture" class="mui-col-xs-6 "><img src="'+ _base_url+'/' +picUrl+'"><label>'+des+'</label></div>'
 						
 						li.innerHTML=content
 						table.appendChild(li);

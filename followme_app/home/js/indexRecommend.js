@@ -32,7 +32,7 @@ function pullupRefresh() {
 		console.log("标识：", isOver);
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh(isOver); //参数为true代表没有更多数据了。
 		mui.ajax({
-			url: _base_url + 'followme/query/queryGif',
+			url: _base_url + '/followme/query/queryGif',
 			type: 'post', //HTTP请求类型
 			/*		headers: {
 						'Content-Type': 'application/json'
@@ -74,7 +74,8 @@ function pullupRefresh() {
 												table.appendChild(li);*/
 
 						/*渲染图片*/
-						content = '<div id="videos"  class="mui-col-xs-6" ><img id="' + p_id + '" src="' + _base_url + p_gif + '" ontouchend="goActivityDeatil(this.id)" > <p>' +
+
+						content = '<div id="videos"  class="mui-col-xs-6" ><img id="' + p_id + '" src="' + _base_url+'/' + p_gif + '" ontouchend="goActivityDeatil(this.id)" > <p>' +
 							p_clubName + '</p><br/><p><input name="checkbox" type="checkbox" class="Checkbox"><label>' + p_clubName + '</label>&nbsp;<label>￥' + p_actCost + '</label></p></div>'
 						li.innerHTML = content
 						table.appendChild(li);
