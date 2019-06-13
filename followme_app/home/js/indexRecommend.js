@@ -14,14 +14,6 @@ mui.init({
 });
 mui.plusReady(function() {
 	pullupRefresh();
-	
-
-	document.getElementById('info').addEventListener('tap', function() {
-		mui.openWindow({
-			url: '../detailAct/detailMain.html', //通过URL传参
-		})
-	});
-
 })
 
 /**
@@ -71,6 +63,8 @@ function pullupRefresh() {
 
 						var li = document.createElement('div');
 						li.className = 'mui-table-view-cell';
+						/*						li.id=p_id;
+												li.onclick=function(){console.log(li.id)};*/
 
 						/*渲染video标签*/
 						/*li.innerHTML = '<video controls="" autoplay="" name="media" width="100%"><source src="'+p_gif+'" type="video/mp4"></video>';*/
@@ -80,10 +74,11 @@ function pullupRefresh() {
 												table.appendChild(li);*/
 
 						/*渲染图片*/
-						content = '<div id="videos" class="mui-col-xs-6 "><img src="' + _base_url + p_gif + '"> <p>' +
+						content = '<div id="videos"  class="mui-col-xs-6" ><img id="' + p_id + '" src="' + _base_url + p_gif + '" ontouchend="goActivityDeatil(this.id)" > <p>' +
 							p_clubName + '</p><br/><p><input name="checkbox" type="checkbox" class="Checkbox"><label>' + p_clubName + '</label>&nbsp;<label>￥' + p_actCost + '</label></p></div>'
 						li.innerHTML = content
 						table.appendChild(li);
+						console.log(p_id)
 						/*$("#content").html(content);*/
 					}
 					//判断是否还有数据,若小于每次加载条数,结束
@@ -103,3 +98,12 @@ function pullupRefresh() {
 	}, 1000);
 }
 
+function goActivityDeatil(id) {
+
+	mui.openWindow({
+		url: '../detailAct/detailMain.html', //通过URL传参
+		extras: {
+			actID: id
+		}
+	})
+}

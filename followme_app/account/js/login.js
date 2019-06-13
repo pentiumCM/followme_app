@@ -38,13 +38,11 @@ var loginV = new Vue({
 								mui.alert("请输入正确的手机号");  
 								return false; 
 							} */
-			console.log("用户信息：",userName);
-			console.log("用户密码：",pwd);
 			var data = {
 				userName: userName,
 				password: pwd
 			};
-			
+
 			hud_show('正在登录');
 			api_post(_accountLogin_url, data, function(res) {
 				console.log(JSON.stringify(res));
