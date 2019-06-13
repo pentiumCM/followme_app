@@ -29,9 +29,10 @@ body {
 	height:300px;
 	width:100%;	
 }
-#activity{
+.activity{
 	height:50px;
 	width:100%;
+    margin:10px;
 }
 /*#activities #activity_img{
 	height:50px;

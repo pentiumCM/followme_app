@@ -42,7 +42,7 @@ function pullupRefresh() {
 					document.getElementById("videoPath").play();
 					$("#beginTime").text(transformTime(data.obj.beginTime = +new Date()));
 					$("#clubName").text(data.obj.clubName);
-					//$("#description").text(data.obj.description);
+					$("#lookDetail").val(data.obj.description)/*  模态框*/
 					$("#beginCity").text(data.obj.beginCity);
 					$("#actCost").text('￥'+data.obj.actCost);
 					
@@ -76,3 +76,8 @@ function addZero(m) {
     return m < 10 ? '0' + m : m;
 }
 transformTime(); // "2018-08-08"
+
+function detail(){
+	var lookDet=document.getElementById("lookDetail");
+	mui.alert(lookDet.value);
+}
