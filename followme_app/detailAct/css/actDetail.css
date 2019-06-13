@@ -6,6 +6,7 @@ body {
 
 #content{
  margin: 10px;
+ margin-top:0px;
  height: 100%;
 /* border: 1px solid #0000FF;	*/
 
@@ -19,12 +20,12 @@ body {
 #exit img{
 	width: 30px;
 	height:30px;
-	float: right;
+	float: left;
 }
 
 #image{
 	width:100%;
-	height:30%;
+	height:35%;
 }
 
 #actIntro{
