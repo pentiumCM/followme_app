@@ -8,36 +8,40 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link href="../public/css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/actMessage.css" />
+		<link rel="stylesheet" href="css/actDetail.css" />
 		<title>右滑活动详情</title>
 	</head>
 
 	<body>
 		<div id="content">
+			<header class="mui-bar mui-bar-nav" style="background: white;">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FF4500;" ></a>
+			</header>
+
 			<div id="goleft">
 				<img src="../images/goleft.png" style="	width: 25px;height:25px;" />
 			</div>
 			<div id="image">
-				<img src="" alt="图片" />
+				<img src="" id = "pictureFirst" alt="图片" />
 			</div>
 			<hr />
 			<div id="actIntro">
 				<h3>活动简介</h3>
 				<span id="" class="mui-col-xs-3">
 			     	<h6>出发日期</h6>
-			     	<label>2019.5.1</label>
+			     	<label id ="beginTime">2019.5.1</label>
 			     </span>
 				<span id="" class="mui-col-xs-3">
 			     	<h6>人数</h6>
-			     	<label>30</label>			     	
+			     	<label id="actCurPerson">30</label>			     	
 			     </span>
 				<span id="" class="mui-col-xs-3">
 			     	<h6>费用</h6>
-			     	<label>100~200s</label>			     	
+			     	<label id="actCost">100~200s</label>			     	
 			     </span>
 				<span id="" class="mui-col-xs-3">
 			     	<h6>集合地点</h6>
-			     	<label>地铁站</label>			     	
+			     	<label id="gatherPlace">地铁站</label>			     	
 			     </span>
 			</div>
 			<br/>
@@ -54,6 +58,12 @@
 		</div>
 
 		</div>
+
 	</body>
+ <script src="../public/js/mui.min.js" type="text/jscript" charset="UTF-8"></script>
+ <script src="js/actDetail.js" type="text/jscript" charset="UTF-8"></script>
+ <script src="../public/js/appconstant.js" type="text/jscript" charset="UTF-8"></script>
+ <script src="../public/jquery/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/detailMain.js" type="text/jscript" charset="UTF-8"></script>
 
 </html>

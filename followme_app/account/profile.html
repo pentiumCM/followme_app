@@ -17,16 +17,16 @@
 		<div class="mui-content">
 			<div id="user-baseinfo-id" v-cloak>
 				<div v-if="!login" id="user-login-id" class="mui-navigate-right" style="height: 120px;background-color: white;margin-bottom: 8px;">
-					<div style="padding-top: 40px;padding-left: 20px;display: inline-block;float: left;">
-						<img src="images/default_sdk_login@2x.png" width="60px" height="60px">
+					<div id="head" >
+						<img src="../images/userhead.png">
 					</div>
 
-					<div style="float: left;margin-top: 60px;margin-left: 15px; display: inline-block; font-size: 15px; color: #888888;">
+					<div id="goLogin">
 						请前往登录
 					</div>
 
-					<div style="float: right;margin-top: 60px;margin-right: 15px;">
-						<img src="images/arrow_icon@2x.png" width="20px" height="20px">
+					<div id="arrow" >
+						<img src="../images/arrow.png" >
 					</div>
 				</div>
 			</div>
@@ -38,33 +38,33 @@
 
 			<div id="orderType">
 				<ul class="mui-table-view mui-grid-view mui-grid-9" style="margin-top: 0px;padding-left: 0px;padding-right: 0px;padding-top: 20px;padding-bottom: 5px;  background-color: white;">
-					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 25%;">
+					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
 						<a style="margin: auto;" onclick="tableDidSelected(1 , '全部订单');">
-							<img src="../images/heme-top2.png" alt="">
+							<img src="../images/order.png" alt="">
 							<div id="00" class="mui-media-body">全部订单</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
 						<a href="#" onclick="tableDidSelected(11 , '待付款');">
-							<img src="../images/heme-top2.png" alt="">
+							<img src="../images/unpay.png" alt="">
 							<div class="mui-media-body">待付款</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
 						<a href="#" onclick="tableDidSelected(12 , '未使用');">
-							<img src="../images/heme-top3.png" alt="">
+							<img src="../images/unuse.png" alt="">
 							<div class="mui-media-body">未使用</div>
 						</a>
 					</li>
 					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
 						<a href="#" onclick="tableDidSelected(13 , '已结束');">
-							<img src="../images/heme-top4.png" alt="">
+							<img src="../images/finished.png" alt="">
 							<div class="mui-media-body">已结束</div>
 						</a>
 					</li>
-					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 25%;">
+					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
 						<a href="#" onclick="tableDidSelected(13 , '取消/退款');">
-							<img src="../images/heme-top4.png" alt="">
+							<img src="../images/refund.png" alt="">
 							<div class="mui-media-body">取消/退款</div>
 						</a>
 					</li>
