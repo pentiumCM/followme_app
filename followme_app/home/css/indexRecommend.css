@@ -49,7 +49,7 @@ body {
 	height: 250px;   
 	float:left;
 	display: inline-block;
-/*	border: 1px solid #E13D13;*/
+	border: 1px solid #E13D13;
 }
 
 /*消除默认线条样式*/

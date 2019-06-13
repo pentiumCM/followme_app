@@ -19,19 +19,19 @@
 				<img src="../images/exit.png" />
 			</div>
 			<div id="video">
-				<h1>视频区域</h1>
+				<video id = "videoPath" controls="" autoplay="" name="media" width="100%"><source src="" type="video/mp4"></video>
 			</div>
 			<div id="club">
 				<input type="checkbox" name="" id="" value=""  />&nbsp;
-				<label>俱乐部</label>
+				<label id="clubName">俱乐部</label>
 			</div>
 			<div id="introduce">
 				<h4>简介</h4>
 				
-					<label id="time">2019.5.1</label>
-					<label id="address">北京出发</label>
-					<label id="money">¥300</label>
-					<label id="details">查看详情</button>
+					<label id="beginTime">2019.5.1</label>
+					<label id="beginCity">北京出发</label>
+					<label id="actCost">¥300</label>
+					<label id="description">查看详情</button>
 				
 			</div>
              <hr />
@@ -44,5 +44,9 @@
 			</div>
 		</div>
 	</body>
+<script src="../public/js/mui.min.js" type="text/jscript" charset="UTF-8"></script>
+ <script src="../public/js/appconstant.js" type="text/jscript" charset="UTF-8"></script>
+ <script src="../public/jquery/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/actVedio.js" type="text/javascript" charset="utf-8"></script>
 
 </html>
