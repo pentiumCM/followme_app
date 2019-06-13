@@ -5,7 +5,6 @@ mui.plusReady(function() {
     
 	var _self = plus.webview.currentWebview();
 	var actID = _self.actID;
-	console.log("main页面接收的id:",actID);
 	
 	
 	/*第一个参数需要传入一个页面的id。需要注意的是，这个页面id 就是我们包含顶部选项卡的页面，也就是当前我们这段js所在的页面*/
