@@ -1,6 +1,7 @@
 /*app的常量配置文件*/
 
-var _base_ip = "192.168.1.115";
+/*URL配置*/
+var _base_ip = "192.168.1.100";
 
 var _base_port = "8080";
 var _base_url = "http://" + _base_ip + ":" + _base_port;			//http:192.168.1.111:8080/

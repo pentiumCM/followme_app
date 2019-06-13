@@ -74,6 +74,7 @@ function pullupRefresh() {
 												table.appendChild(li);*/
 
 						/*渲染图片*/
+
 						content = '<div id="videos"  class="mui-col-xs-6" ><img id="' + p_id + '" src="' + _base_url+'/' + p_gif + '" ontouchend="goActivityDeatil(this.id)" > <p>' +
 							p_clubName + '</p><br/><p><input name="checkbox" type="checkbox" class="Checkbox"><label>' + p_clubName + '</label>&nbsp;<label>￥' + p_actCost + '</label></p></div>'
 						li.innerHTML = content

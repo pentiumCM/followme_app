@@ -1,4 +1,3 @@
-
 var actID = null;
 //mui初始化
 mui.init();

@@ -16,63 +16,74 @@
 
 		<div class="mui-content">
 			<div id="user-baseinfo-id" v-cloak>
-				<div v-if="!login" id="user-login-id" class="mui-navigate-right" style="height: 120px;background-color: white;margin-bottom: 8px;">
-					<div id="head" >
+
+				<div id="user-login-id" class="mui-navigate-right" style="height: 120px;background-color: white;margin-bottom: 8px;">
+					<div id="head">
 						<img src="../images/userhead.png">
 					</div>
 
 					<div id="goLogin">
-						请前往登录
+						<span id="userName">请前往登录</span>
+
 					</div>
 
-					<div id="arrow" >
-						<img src="../images/arrow.png" >
+					<div id="arrow">
+						<img src="../images/arrow.png">
 					</div>
 				</div>
-			</div>
-			<!--分隔线-->
-			<HR align=center width=300 color=#987cb9 SIZE=1>
 
-			<div class="list-title" >我的订单</div>
-			<HR align=center width=300 color=#987cb9 SIZE=1>
 
-			<div id="orderType">
-				<ul class="mui-table-view mui-grid-view mui-grid-9" style="margin-top: 0px;padding-left: 0px;padding-right: 0px;padding-top: 20px;padding-bottom: 5px;  background-color: white;">
-					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
-						<a style="margin: auto;" onclick="tableDidSelected(1 , '全部订单');">
-							<img src="../images/order.png" alt="">
-							<div id="00" class="mui-media-body">全部订单</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
-						<a href="#" onclick="tableDidSelected(11 , '待付款');">
-							<img src="../images/unpay.png" alt="">
-							<div class="mui-media-body">待付款</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
-						<a href="#" onclick="tableDidSelected(12 , '未使用');">
-							<img src="../images/unuse.png" alt="">
-							<div class="mui-media-body">未使用</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
-						<a href="#" onclick="tableDidSelected(13 , '已结束');">
-							<img src="../images/finished.png" alt="">
-							<div class="mui-media-body">已结束</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
-						<a href="#" onclick="tableDidSelected(13 , '取消/退款');">
-							<img src="../images/refund.png" alt="">
-							<div class="mui-media-body">取消/退款</div>
-						</a>
-					</li>
-				</ul>
 			</div>
+
+
+		</div>
+		<!--分隔线-->
+		<HR align=center width=300 color=#987cb9 SIZE=1>
+
+		<div class="list-title">我的订单</div>
+		<HR align=center width=300 color=#987cb9 SIZE=1>
+
+		<div id="orderType">
+			<ul class="mui-table-view mui-grid-view mui-grid-9" style="margin-top: 0px;padding-left: 0px;padding-right: 0px;padding-top: 20px;padding-bottom: 5px;  background-color: white;">
+				<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
+					<a style="margin: auto;" onclick="tableDidSelected(1 , '全部订单');">
+						<img src="../images/order.png" alt="">
+						<div id="00" class="mui-media-body">全部订单</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
+					<a href="#" onclick="tableDidSelected(11 , '待付款');">
+						<img src="../images/unpay.png" alt="">
+						<div class="mui-media-body">待付款</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
+					<a href="#" onclick="tableDidSelected(12 , '未使用');">
+						<img src="../images/unuse.png" alt="">
+						<div class="mui-media-body">未使用</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
+					<a href="#" onclick="tableDidSelected(13 , '已结束');">
+						<img src="../images/finished.png" alt="">
+						<div class="mui-media-body">已结束</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="background-color: white;width: 20%;">
+					<a href="#" onclick="tableDidSelected(13 , '取消/退款');">
+						<img src="../images/refund.png" alt="">
+						<div class="mui-media-body">取消/退款</div>
+					</a>
+				</li>
+			</ul>
+		</div>
 		</div>
 
 		<script src="../public/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../public/js/vue.min.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="../public/js/open.page.js" type="text/javascript" charset="UTF-8"></script>
+
+		<script src="js/user.js" type="text/javascript"></script>
 		<script src="js/profile.js" type="text/javascript" charset="UTF-8"></script>
 	</body>
 
