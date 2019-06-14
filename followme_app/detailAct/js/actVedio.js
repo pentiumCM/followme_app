@@ -81,3 +81,13 @@ function detail(){
 	var lookDet=document.getElementById("lookDetail");
 	mui.alert(lookDet.value);
 }
+
+/*视频播放全屏*/
+function getreqfullscreen (root) {
+    var root = document.documentElement
+    return root.requestFullscreen || root.webkitRequestFullscreen || root.mozRequestFullScreen || root.msRequestFullscreen
+}
+var fullscreen = getreqfullscreen();
+function full() {
+    fullscreen.call(document.getElementById("video"));
+}
