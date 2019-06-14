@@ -15,7 +15,7 @@
 	<body>
 		<div id="content">
 
-			<div id="video">
+			<div id="video_content">
 				<!--				<div id="exit">
 					<img src="../images/exit.png" />
 				</div>-->
@@ -41,8 +41,8 @@
 					<img src="../images/share.png" />
 				</div>
 
-				<video id="videoPath" controls=""  autoplay="true" webkit-playsinline="true" name="media" x5-video-player-type="true" x5-video-player-fullscreen="true" playsinline="true" x5-playsinline="true" preload="none" >
-					<source src="" type="video/mp4"  <!--style="width: 100%;height: 100%;"-->>
+				<video id="videoPath"   autoplay="true" loop="" preload="auto" webkit-playsinline="true"  playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="false" x-webkit-airplay="allow"  >
+					<source src="" type="video/mp4"  >
 				</video>
 
 			</div>
@@ -61,7 +61,7 @@
 			</div>-->
 
 		</div>
-		<script>
+<!--		<script>
 			function getreqfullscreen(root) {
 				var root = document.documentElement
 				return root.requestFullscreen || root.webkitRequestFullscreen || root.mozRequestFullScreen || root.msRequestFullscreen
@@ -71,11 +71,13 @@
 			function full() {
 				fullscreen.call(document.getElementById("player"));
 			}
-		</script>
+		</script>-->
 	</body>
 	<script src="../public/js/mui.min.js" type="text/jscript" charset="UTF-8"></script>
 	<script src="../public/js/appconstant.js" type="text/jscript" charset="UTF-8"></script>
-	<script src="../public/jquery/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script src="../public/jquery/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/upAndDown.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/actVedio.js" type="text/javascript" charset="utf-8"></script>
 
 </html>

@@ -32,7 +32,7 @@ function userHasLogined() {
 function getUserInfo() {
 	var s = localStorage.getItem('loginuserinfo');
 	var u = JSON.parse(s);
-	console.log("用户信息第一步：", u.toString());
+	console.log("用户信息第一步：", u);
 	return u;
 }
 

@@ -15,9 +15,11 @@ mui.plusReady(function() {
 			url: "actDetail.html",
 			extras: {actID: actID}
 		}, {
+
 			id: "actVideo.html", //这是子页2的路径
 			url: "actVideo.html",
 			extras: {actID: actID}
+
 		}, {
 			id: "clubDetail.html", //这是子页3的路径
 			url: "clubDetail.html",

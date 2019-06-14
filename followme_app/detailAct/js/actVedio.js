@@ -39,7 +39,7 @@ function pullupRefresh() {
 				if(data.code == 200) { //查询成功
 					document.getElementById("videoPath").src = _base_url + data.obj.vedioPath;
 					console.log(_base_url + data.obj.vedioPath);
-					document.getElementById("videoPath").play();
+					/*document.getElementById("videoPath").play();*/
 					$("#beginTime").text(transformTime(data.obj.beginTime = +new Date()));
 					$("#clubName").text(data.obj.clubName);
 					$("#lookDetail").val(data.obj.description)/*  模态框*/
@@ -83,11 +83,23 @@ function detail(){
 }
 
 /*视频播放全屏*/
-function getreqfullscreen (root) {
+/*function getreqfullscreen (root) {
     var root = document.documentElement
     return root.requestFullscreen || root.webkitRequestFullscreen || root.mozRequestFullScreen || root.msRequestFullscreen
 }
 var fullscreen = getreqfullscreen();
 function full() {
     fullscreen.call(document.getElementById("video"));
-}
+}*/
+
+
+	var video = document.getElementById("videoPath");
+    video.onclick = function() {
+        if(video.paused){  // 如果视频是暂停的
+            video.play();    //play()播放  load()重新加载  pause()暂停
+        }else{
+            video.pause();
+        }
+    }
+
+
