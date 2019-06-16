@@ -46,14 +46,14 @@
 			<h1 class="mui-title">消息</h1>
 		</header>
 
-		<div id="all" style="margin-top: 44px;">
+		<div id="all">
 
 			<!-- 聊天页 -->
 			<div id="chatList">
 				<script id='tpl' type="text/html">
 					<ul class="list-ul">
-						<a href="#">
-							<%for(var i in items){%>
+						<%for(var i in items){%>
+						<a ontouchend = 'getChatGroup(<%=items[i].id%>)' />
 							<li class="list-li">
 								<div class="li-hd">
 									<div class="li-hd-img">
@@ -65,12 +65,13 @@
 										<span class="tp-name"><%=items[i].groupChatName%></span>
 										<span class="tp-time"><%=items[i].groupChatInfoList[0].contentDate%></span>
 									</div>
-									<div class="li-bd-content"><%=items[i].groupChatInfoList[0].content%></div>
+									<div class="li-bd-content">
+										<%=items[i].groupChatInfoList[0].content%>
+									</div>
 								</div>
 							</li>
-							
+
 							<%}%>
-							
 					</ul>
 				</script>
 
@@ -86,6 +87,5 @@
 	<script src="../public/js/appconstant.js"></script>
 	<script src="../public/js/template.js"></script>
 	<script src="js/chatList.js" type="text/javascript" charset="UTF-8"></script>
-
 
 </html>

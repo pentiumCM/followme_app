@@ -28,6 +28,9 @@
 	}
 
 	$.plusReady(function() {
+		var _self = plus.webview.currentWebview();
+	var groupChatID = _self.groupChatID;
+		
 		plus.webview.currentWebview().setStyle({
 			softinputMode: "adjustResize"
 		});
