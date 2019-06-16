@@ -1,4 +1,4 @@
-
+var srcVideo='';
 var actID = null;
 //mui初始化
 mui.init();
@@ -7,10 +7,11 @@ mui.plusReady(function() {
     
 	var _self = plus.webview.currentWebview();
 	actID = _self.actID;
-	console.log("vedio");
-	console.log("zi页面页面接收的id:",actID);
+	console.log("video");
+	console.log("Video页面接收的id:",actID);
 	
 	pullupRefresh();
+	
 	
 	
 });
@@ -37,15 +38,16 @@ function pullupRefresh() {
 				console.log(data.code);
 				var content = ''
 				if(data.code == 200) { //查询成功
-					document.getElementById("videoPath").src = _base_url + data.obj.vedioPath;
+ 					document.getElementById("videoPath").src = _base_url + data.obj.vedioPath;
 					console.log(_base_url + data.obj.vedioPath);
 					/*document.getElementById("videoPath").play();*/
+					/*srcVideo=_base_url + data.obj.vedioPath;*/
 					$("#beginTime").text(transformTime(data.obj.beginTime = +new Date()));
 					$("#clubName").text(data.obj.clubName);
 					$("#lookDetail").val(data.obj.description)/*  模态框*/
 					$("#beginCity").text(data.obj.beginCity);
 					$("#actCost").text('￥'+data.obj.actCost);
-					
+				/*	createVideoPlayer(srcVideo);*/
 
 				}
 					//判断是否还有数据,若小于每次加载条数,结束
@@ -89,17 +91,40 @@ function detail(){
 }
 var fullscreen = getreqfullscreen();
 function full() {
-    fullscreen.call(document.getElementById("video"));
+    fullscreen.call(document.getElementById("videoPath"));
 }*/
 
 
 	var video = document.getElementById("videoPath");
     video.onclick = function() {
-        if(video.paused){  // 如果视频是暂停的
-            video.play();    //play()播放  load()重新加载  pause()暂停
+        if(video.paused){  
+            video.play();    
         }else{
             video.pause();
         }
     }
 
 
+
+// 创建视频播放控件
+/*var player = null;
+	function createVideoPlayer(srcVideo) {
+		console.log("视频："+srcVideo);
+		if(!player){
+			player = plus.video.createVideoPlayer('videoplayer', {
+				'src':srcVideo,
+				'top':'0px',
+				'left':'0px',
+				'width': '100%',
+				'height': '100%',
+				'initial-time':'59.547001',
+				'autoplay':'true'
+				
+			});
+		plus.webview.currentWebview().append(player);
+		console.log("视频1："+srcVideo);
+		player.addEventListener('timeupdate', function(e){
+			console.log(JSON.stringify(e));
+		}, false);
+		}
+	}*/

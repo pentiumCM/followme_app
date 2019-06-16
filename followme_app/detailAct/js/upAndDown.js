@@ -3,24 +3,12 @@
 
 	$.fn.swipe = function(option) {
 		var opt = {
-			'left': $.noop,
-			'right': $.noop,
 			'up': $.noop,
 			'down': $.noop
 		};
 
 		if ($.type(option) == 'string') {
 			switch (option.toLowerCase()) {
-				case 'left':
-					if (this.data('opt').left && $.isFunction(this.data('opt').left)) {
-						this.data('opt').left.call(this);
-					}
-					break;
-				case 'right':
-					if (this.data('opt').right && $.isFunction(this.data('opt').right)) {
-						this.data('opt').right.call(this);
-					}
-					break;
 				case 'up':
 					if (this.data('opt').up && $.isFunction(this.data('opt').up)) {
 						this.data('opt').up.call(this);
@@ -65,10 +53,6 @@
                         
                     $(document).on('touchmove.swipe.founder mousemove.swipe.founder',function(e){
                         var ev=e.type=='touchmove'?e.originalEvent.touches[0]:e;
-                        
-                        if (opt.left != $.noop || opt.right != $.noop) {
-                            $(ele).css('left', ev.pageX - disX - $(ele).offsetParent().offset().left + 'px');
-                        }
     
                         if (opt.up != $.noop || opt.down != $.noop) {
                             $(ele).css('top', ev.pageY - disY - $(ele).offsetParent().offset().top + 'px');
@@ -89,16 +73,6 @@
                         direction = x >= y ? (endX < startX ? (Math.abs(endX - startX) > dis ? 'left' : null) : (Math.abs(endX - startX) > dis ? 'right' : null)) : (endY < startY ? (Math.abs(endY - startY) > dis ? 'up' : null) : (Math.abs(endY - startY) > dis ? 'down' : null));
 
                         switch (direction) {
-                            case 'left':
-                                if (opt.left && $.isFunction(opt.left)) {
-                                    opt.left.call(ele);
-                                }
-                                break;
-                            case 'right':
-                                if (opt.right && $.isFunction(opt.right)) {
-                                    opt.right.call(ele);
-                                }
-                                break;
                             case 'up':
                                 if (opt.up && $.isFunction(opt.up)) {
                                     opt.up.call(ele);
@@ -135,12 +109,12 @@
 
 
  $('body').swipe({  
-                left: function(){  
+/*                left: function(){  
                    console.log('向左运动');  
                 },  
                 right: function(){  
                     console.log('向右运动');  
-                },  
+                },  */
                 up: function(){  
                    alert("向上滑动");  
                 },  
