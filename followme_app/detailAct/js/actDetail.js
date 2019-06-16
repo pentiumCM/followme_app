@@ -77,10 +77,10 @@ transformTime(); // "2018-08-08"
 function exit() {
 	console.log("进行退出页面方法");
 
-	plus.webview.close(plus.webview.currentWebview()); //关闭本页面
+	/*plus.webview.close(plus.webview.currentWebview());*/ //关闭本页面
 	mui.openWindow({
-		url: '../home/home.html', //例： ceshi/ceshi.html
-		id: 'home.html',
+		url: '../index.html', //例： ceshi/ceshi.html
+		/*id: 'home.html',*/
 		extras: {
 
 		},
@@ -96,5 +96,4 @@ function exit() {
 
 	console.log("退出页面方法完成");
 }
-
 

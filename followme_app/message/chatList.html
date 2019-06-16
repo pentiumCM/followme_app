@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+		<!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- 这个主要是根据实际的页面设计的主体色为搭配来进行设置。 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<!-- 忽略页面中的数字识别为电话号码,email识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<!-- 启用360浏览器的极速模式(webkit) -->
+		<meta name="renderer" content="webkit">
+		<!-- 避免IE使用兼容模式 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+		<meta name="HandheldFriendly" content="true">
+		<!-- 微软的老式浏览器 -->
+		<meta name="MobileOptimized" content="320">
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<!-- UC应用模式 -->
+		<meta name="browsermode" content="application">
+		<!-- QQ应用模式 -->
+		<meta name="x5-page-mode" content="app">
+		<!-- windows phone 点击无高光 -->
+		<meta name="msapplication-tap-highlight" content="no">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../public/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../public/css/app.css" />
+		<link href="../public/css/mui.imageviewer.css" rel="stylesheet" />
+
+		<link rel="stylesheet" href="css/chatList.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">消息</h1>
+		</header>
+
+		<div id="all" style="margin-top: 44px;">
+
+			<!-- 聊天页 -->
+			<div id="chatList">
+				<script id='tpl' type="text/html">
+					<ul class="list-ul">
+						<a href="#">
+							<%for(var i in items){%>
+							<li class="list-li">
+								<div class="li-hd">
+									<div class="li-hd-img">
+										<img src="../public/images/head.jpeg" alt="">
+									</div>
+								</div>
+								<div class="li-bd">
+									<div class="li-bd-tp">
+										<span class="tp-name"><%=items[i].groupChatName%></span>
+										<span class="tp-time"><%=items[i].groupChatInfoList[0].contentDate%></span>
+									</div>
+									<div class="li-bd-content"><%=items[i].groupChatInfoList[0].content%></div>
+								</div>
+							</li>
+							
+							<%}%>
+							
+					</ul>
+				</script>
+
+			</div>
+
+			</a>
+		</div>
+
+	</body>
+	<script src="../public/js/mui.min.js"></script>
+	<script src="../public/js/mui.imageViewer.js"></script>
+	<script src="../public/js/arttmpl.js"></script>
+	<script src="../public/js/appconstant.js"></script>
+	<script src="../public/js/template.js"></script>
+	<script src="js/chatList.js" type="text/javascript" charset="UTF-8"></script>
+
+
+</html>

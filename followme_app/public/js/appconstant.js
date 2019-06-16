@@ -2,7 +2,7 @@
 
 
 /*URL配置*/
-var _base_ip = "192.168.1.157";
+var _base_ip = "192.168.1.110";
 
 var _base_port = "8080";
 var _base_url = "http://" + _base_ip + ":" + _base_port;			//http:192.168.1.111:8080/
@@ -20,5 +20,5 @@ var _phoneRegister_url = _base_url + "/followme/account/login/accountRegister";
 var _titles = ['首页', '消息', '个人中心']
 
 /*底部按钮对应的界面:首页，消息，我*/
-var subpages = ['home/home.html', 'message/message.html', 'account/profile.html'];
+var subpages = ['home/home.html', 'message/chatList.html', 'account/profile.html'];
 
