@@ -95,3 +95,8 @@ function pullupRefresh() {
 
 	}, 1000);
 }
+
+//返回
+function exit(){
+	mui.back();
+}
