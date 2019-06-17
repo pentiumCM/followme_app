@@ -17,7 +17,7 @@ function pullupRefresh() {
 
 			success: function(data) {
 				for(i = 0; i < data.obj.length; i++) {
-					data.obj[i].groupChatInfoList[0].contentDate = timetrans(data.obj[i].groupChatInfoList[0].contentDate/1000);
+					data.obj[i].groupChatInfoList[data.obj[i].groupChatInfoList.length-1].contentDate = timetrans(data.obj[i].groupChatInfoList[data.obj[i].groupChatInfoList.length-1].contentDate/1000);
 				}
 				var items = {
 					items: data.obj

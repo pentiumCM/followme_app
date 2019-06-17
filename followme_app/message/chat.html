@@ -8,16 +8,12 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link href="../public/css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="../public/css/app.css" />
 		<link href="../public/css/mui.imageviewer.css" rel="stylesheet" />
 
 		<link rel="stylesheet" href="css/chat.css" />
 	</head>
 
 	<body contextmenu="return false;">
-		<div id="goleft">
-			<img id="backImg" src="../images/goleft.png" style="width: 25px;height:25px;" />
-		</div>
 
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
@@ -26,22 +22,30 @@
 		<pre id='h'></pre>
 		<script id='msg-template' type="text/template">
 			<% for(var i in record){ var item=record[i]; %>
-			<div class="msg-item <%= (item.sender=='self'?' msg-item-self':'') %>" msg-type='<%=(item.type)%>' msg-content='<%=(item.content)%>'>
-				<% if(item.sender=='self' ) { %>
-				<i class="msg-user mui-icon mui-icon-person"></i>
+			<div class="msg-item <%= (item.userID==item.loginUserID?' msg-item-self':'') %>" msg-content='<%=(item.content)%>'>
+				<% if(item.userID==item.loginUserID ) { %>
+				<div style = 'vertical-align: top;text-align: center;'><font size="1" color="#747B8B"><%=(item.contentDate)%></font></div>
+				<div style = 'vertical-align: top;text-align: right; margin-right: 50px;'><font size="2"><%=(item.username)%></font></div>
+				<img class="msg-self-img" src="<%=(item.profilePicture)%>" alt="" />
 				<% } else { %>
-				<img class="msg-user-img" src="../account/images/default_sdk_login@2x.png" alt="" />
+				<div style = 'vertical-align: top;text-align: center;'><font size="1" color="#747B8B"><%=(item.contentDate)%></font></div>
+				<div style = 'vertical-align: top;text-align: left; margin-left: 50px;'><font size="2"><%=(item.username)%></font></div>
+				<img class="msg-user-img" src="<%=(item.profilePicture)%>" alt="" />
 				<% } %>
+				
 				<div class="msg-content">
+					
 					<div class="msg-content-inner">
-						<% if(item.type=='text' ) { %>
 						<%=( item.content|| '&nbsp;&nbsp;') %>
+						<!--<% if(item.type=='text' ) { %>
+						<%=( item.content|| '&nbsp;&nbsp;') %>
+						
 						<% } else if(item.type=='image' ) { %>
 						<img class="msg-content-image" src="<%=(item.content)%>" style="max-width: 100px;" />
 						<% } else if(item.type=='sound' ) { %>
 						<span class="mui-icon mui-icon-mic" style="font-size: 18px;font-weight: bold;"></span>
 						<span class="play-state">点击播放</span>
-						<% } %>
+						<% } %>-->
 					</div>
 					<div class="msg-content-arrow"></div>
 				</div>
@@ -74,6 +78,8 @@
 		<script src="../public/js/mui.min.js"></script>
 		<script src="../public/js/mui.imageViewer.js"></script>
 		<script src="../public/js/arttmpl.js"></script>
+		<script src="../public/js/appconstant.js" type="text/javascript" charset="utf-8"></script>
+		
 		<script src="js/chat.js" type="text/javascript" charset="UTF-8"></script>
 	</body>
 

@@ -118,6 +118,17 @@ footer {
 	color: #ddd;
 }
 
+.msg-item .msg-self-img {
+	width: 38px;
+	height: 38px;
+	display: inline-block;
+	border-radius: 3px;
+	vertical-align: top;
+	text-align: center;
+	float: right;
+	color: #ddd;
+}
+
 .msg-item .msg-content {
 	display: inline-block;
 	border-radius: 5px;
