@@ -28,9 +28,15 @@
 	}
 
 	$.plusReady(function() {
+		document.getElementById("backImg").addEventListener("tap", function() {
+			//点击退出按钮
+			mui.back();
+			//mui.close();
+		});
+
 		var _self = plus.webview.currentWebview();
-	var groupChatID = _self.groupChatID;
-		
+		var groupChatID = _self.groupChatID;
+
 		plus.webview.currentWebview().setStyle({
 			softinputMode: "adjustResize"
 		});
