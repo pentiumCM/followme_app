@@ -17,7 +17,7 @@ function pullupRefresh() {
 
 			success: function(data) {
 				for(i = 0; i < data.obj.length; i++) {
-					data.obj[i].groupChatInfoList[data.obj[i].groupChatInfoList.length-1].contentDate = timetrans(data.obj[i].groupChatInfoList[data.obj[i].groupChatInfoList.length-1].contentDate/1000);
+					data.obj[i].groupChatInfoList[data.obj[i].groupChatInfoList.length - 1].contentDate = timetrans(data.obj[i].groupChatInfoList[data.obj[i].groupChatInfoList.length - 1].contentDate / 1000);
 				}
 				var items = {
 					items: data.obj
@@ -33,20 +33,19 @@ function pullupRefresh() {
 	}, 1000);
 }
 
-
-function timetrans(date){
-    var date = new Date(date*1000);//如果date为13位不需要乘1000
-    var Y = date.getFullYear() + '-';
-    var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-    var D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
-    var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
-    var m = (date.getMinutes() <10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
-    var s = (date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
-    return Y+M+D+h+m+s;
+function timetrans(date) {
+	var date = new Date(date * 1000); //如果date为13位不需要乘1000
+	var Y = date.getFullYear() + '-';
+	var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+	var D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
+	var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+	var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+	var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+	return Y + M + D + h + m + s;
 }
 
-
-function getChatGroup (groupChatID) {
+//点击跳转到某一个聊天详情界面
+function getChatGroup(groupChatID) {
 	console.log(groupChatID);
 	mui.openWindow({
 		url: 'chat.html', //通过URL传参

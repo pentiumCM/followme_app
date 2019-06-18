@@ -434,7 +434,7 @@ function timetrans(date) {
 
 function getWebSocket (loginUserID) {
 	if('WebSocket' in window) {
-		var url = "ws://" + "192.168.1.110:8080" + "/followme/chat/"+loginUserID;
+		var url = _wsUrl +loginUserID;
 		console.log(url);
 		var webSocket = new WebSocket(url);
 		console.log(webSocket);

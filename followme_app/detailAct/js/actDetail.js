@@ -46,7 +46,7 @@ function pullupRefresh() {
 				//每次加载结束之后，如果还有数据则++,查询下一页数据
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				console.log("请求失败!!！" + textStatus);
+				console.log("请求失败!!" + textStatus);
 			}
 		})
 	}, 1000);
