@@ -1,4 +1,13 @@
-mui.init({});
+mui.init({
+	beforeback: function() {　　　　
+
+		var list = plus.webview.currentWebview().opener();　　　　
+		//refresh是上个页面自定义事件
+		mui.fire(list, 'refresh');
+		//返回true,继续页面关闭逻辑
+		return true;
+	}
+});
 
 function registerAndFindPwdAction(type) {
 	openNewPage('register.html', type ? '找回密码' : '注册账号', true, {
@@ -27,7 +36,7 @@ var loginV = new Vue({
 							}*/
 
 			if(pwd.length < 6) {
-				plus.nativeUI.toast('请输入正确的密码');
+				plus.nativeUI.toast('请输入正确的密码,密码长度大于6位');
 				return;
 			}
 			// /^1[0-9]{10}$/

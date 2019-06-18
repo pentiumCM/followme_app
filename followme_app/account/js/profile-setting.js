@@ -1,4 +1,13 @@
-mui.init()
+mui.init({
+	beforeback: function() {　　　　
+
+		var list = plus.webview.currentWebview().opener();　　　　
+		//refresh是A页面自定义事件
+		mui.fire(list, 'refresh');
+		//返回true,继续页面关闭逻辑
+		return true;
+	}
+});
 
 var _v = new Vue({
 	el: "#me-setter-listid",
@@ -25,7 +34,7 @@ function tableDidSelected(row) {
 	switch(row) {
 		//case 0:openNewPage('me-baseinfo.html' , '关于我们' , true);break;	
 		case 1:
-			openNewPage('me-black-list.html', '黑名单', true);
+			//openNewPage('me-black-list.html', '黑名单', true);
 			break;
 		case 2:
 			mui.confirm("确定清除缓存?", ["确认", "取消"], function(e) {
@@ -46,7 +55,7 @@ function tableDidSelected(row) {
 			});
 			break;
 		case 3: //意见反馈
-			openNewPage('../publish/pub-feedback.html', '意见反馈', true);
+			//openNewPage('../publish/pub-feedback.html', '意见反馈', true);
 			break;
 		case 4:
 			//openNewPage('me-setter-aboutus.html', '关于我们', true);

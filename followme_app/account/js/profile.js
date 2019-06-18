@@ -1,3 +1,5 @@
+mui.init()
+
 var _userinfo;
 var isfromloginsuccess = false;
 
@@ -25,27 +27,26 @@ var baseinfo = new Vue({
 	}
 })
 
-mui.init()
 mui.plusReady(function() {
 	var wv = plus.webview.currentWebview();
 
 	if(userHasLogined()) {
-	console.log("进行用户名填充方法");
+		console.log("进行用户名填充方法");
 
-	document.getElementById("userName").innerText = getLoginUid();
-	document.getElementById("userName").style.size = '20px';
+		document.getElementById("userName").innerText = getLoginUid();
+		document.getElementById("userName").style.size = '20px';
 
-	document.getElementById('user-login-id').addEventListener('tap', function() {
-		openNewPage('profile-setting.html', '设置', true);
-	})
-} else {
-	document.getElementById('user-login-id').addEventListener('tap', function() {
-		if(userHasLogined()) {
-			return;
-		}
-		openNewPage('login.html', '登录', true);
-	})
-}
+		document.getElementById('user-login-id').addEventListener('tap', function() {
+			openNewPage('profile-setting.html', '设置', true);
+		})
+	} else {
+		document.getElementById('user-login-id').addEventListener('tap', function() {
+			if(userHasLogined()) {
+				return;
+			}
+			openNewPage('login.html', '登录', true);
+		})
+	}
 
 })
 
@@ -82,8 +83,6 @@ function getUserProfile() {
 
 }
 
-
-
 //刷新资料
 document.addEventListener('update-profile-success', function(event) {
 	isfromloginsuccess = true;
@@ -95,3 +94,10 @@ document.addEventListener('logout-event', function(event) {
 	baseinfo.login = false;
 	location.reload();
 })
+
+
+//执行刷新
+window.addEventListener('refresh', function(e) { //执行刷新
+	console.log("执行刷新方法");
+	location.reload();
+});
