@@ -63,10 +63,10 @@
 								<div class="li-bd">
 									<div class="li-bd-tp">
 										<span class="tp-name"><%=items[i].groupChatName%></span>
-										<span class="tp-time"><%=items[i].groupChatInfoList[0].contentDate%></span>
+										<span class="tp-time"><%=items[i].groupChatInfoList[items[i].groupChatInfoList.length-1].contentDate%></span>
 									</div>
 									<div class="li-bd-content">
-										<%=items[i].groupChatInfoList[0].content%>
+										<%=items[i].groupChatInfoList[items[i].groupChatInfoList.length-1].content%>
 									</div>
 								</div>
 							</li>
