@@ -22,19 +22,20 @@
 		<pre id='h'></pre>
 		<script id='msg-template' type="text/template">
 			<% for(var i in record){ var item=record[i]; %>
+				<% if(item.content!=null) { %>
 			<div class="msg-item <%= (item.userID==item.loginUserID?' msg-item-self':'') %>" msg-content='<%=(item.content)%>'>
-				<% if(item.userID==item.loginUserID ) { %>
+				<% if(item.userID==item.loginUserID && item.content!=null) { %>
 				<div style = 'vertical-align: top;text-align: center;'><font size="1" color="#747B8B"><%=(item.contentDate)%></font></div>
 				<div style = 'vertical-align: top;text-align: right; margin-right: 50px;'><font size="2"><%=(item.username)%></font></div>
 				<img class="msg-self-img" src="<%=(item.profilePicture)%>" alt="" />
-				<% } else { %>
+				<% } %>
+				<% if(item.userID!=item.loginUserID && item.content!=null) { %>
 				<div style = 'vertical-align: top;text-align: center;'><font size="1" color="#747B8B"><%=(item.contentDate)%></font></div>
 				<div style = 'vertical-align: top;text-align: left; margin-left: 50px;'><font size="2"><%=(item.username)%></font></div>
 				<img class="msg-user-img" src="<%=(item.profilePicture)%>" alt="" />
 				<% } %>
-				
+				<% if(item.content!=null) { %>
 				<div class="msg-content">
-					
 					<div class="msg-content-inner">
 						<%=( item.content|| '&nbsp;&nbsp;') %>
 						<!--<% if(item.type=='text' ) { %>
@@ -49,8 +50,10 @@
 					</div>
 					<div class="msg-content-arrow"></div>
 				</div>
+				<% } %>
 				<div class="mui-item-clear"></div>
 			</div>
+			<% } %>
 			<% } %>
 		</script>
 		<div class="mui-content">

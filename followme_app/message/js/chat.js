@@ -32,9 +32,12 @@
 		var groupChatID = _self.groupChatID;
 		
 		var webSocket = null;
-		webSocket = getWebSocket(27);
 		
-		console.log(webSocket)
+		
+		
+		webSocket = getWebSocket();
+		
+		
 
 		plus.webview.currentWebview().setStyle({
 			softinputMode: "adjustResize"
@@ -63,39 +66,7 @@
 			type: 'text',
 			content: 'Hi，欢迎加入活动群聊！'
 		}];*/
-		setTimeout(function() {
-			mui.ajax({
-				url: _base_url + '/followme/chat/getGroupChatLog',
-				type: 'post', //HTTP请求类型
-				/*		headers: {
-							'Content-Type': 'application/json'
-						},*/
-				data: {
-					groupChatID: groupChatID
-				},
-				dataType: 'json', //服务器返回json格式数据
-				timeout: 10000,
-
-				success: function(data) {
-					for(i = 0; i < data.obj.groupChatInfoList.length; i++) {
-						data.obj.groupChatInfoList[i].contentDate = timetrans(data.obj.groupChatInfoList[i].contentDate / 1000);
-						data.obj.groupChatInfoList[i].profilePicture = _base_url + data.obj.groupChatInfoList[i].profilePicture;
-					}
-					userID = data.obj.loginUser.id;
-					record = data.obj.groupChatInfoList;
-					for(i = 0; i < record.length; i++) {
-						record[i].loginUserID = data.obj.loginUser.id;
-					}
-					
-					send(record);
-					
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					console.log("请求失败!!！" + textStatus);
-				}
-			});
-
-		}, 1000);
+		
 
 		var ui = {
 			body: doc.querySelector('body'),
@@ -158,31 +129,9 @@
 		
 		
 		var send = function(msg) {
-			console.log("send----")
-			console.log(msg.groupChatID);
 			record.push(msg);
 			bindMsgList();
 			//toRobot(msg.content);
-		};
-		
-		
-		
-		
-		var toRobot = function(info) {
-			var apiUrl = 'http://www.tuling123.com/openapi/api';
-			$.getJSON(apiUrl, {
-				"key": 'acfbca724ea1b5db96d2eef88ce677dc',
-				"info": info,
-				"userid": plus.device.uuid
-			}, function(data) {
-				//alert(JSON.stringify(data));
-				record.push({
-					sender: 'zs',
-					type: 'text',
-					content: data.text
-				});
-				bindMsgList();
-			});
 		};
 
 		function msgTextFocus() {
@@ -225,7 +174,9 @@
 					ui.boxMsgText.focus();
 				}, 150);
 				//							event.detail.gesture.preventDefault();
-				 
+				
+				
+				//websocket向服务端发送客户端聊天内容
 				var msgText = document.getElementById("msg-text").value;
 				var txt = {
 					"content": msgText,
@@ -234,7 +185,6 @@
 				};
 				
 				ui.boxMsgText.value = '';
-				$.trigger(ui.boxMsgText, 'input', null);
 				webSocket.send(JSON.stringify(txt));
 				webSocket.onmessage = function(event) {
 					
@@ -242,7 +192,6 @@
 					console.log(event.data);
 					var temp = JSON.parse(event.data);
 					temp.profilePicture = _base_url + temp.profilePicture;
-					console.log(temp.profilePicture);
 					send(temp);
 		}
 				
@@ -416,6 +365,44 @@
 				ui.boxMsgText.blur();
 			}
 		})
+		
+		//加载历史聊天记录
+		setTimeout(function() {
+			mui.ajax({
+				url: _base_url + '/followme/chat/getGroupChatLog',
+				type: 'post', //HTTP请求类型
+				/*		headers: {
+							'Content-Type': 'application/json'
+						},*/
+				data: {
+					groupChatID: groupChatID
+				},
+				dataType: 'json', //服务器返回json格式数据
+				timeout: 10000,
+
+				success: function(data) {
+					for(i = 0; i < data.obj.groupChatInfoList.length; i++) {
+						data.obj.groupChatInfoList[i].contentDate = timetrans(data.obj.groupChatInfoList[i].contentDate / 1000);
+						data.obj.groupChatInfoList[i].profilePicture = _base_url + data.obj.groupChatInfoList[i].profilePicture;
+					}
+					userID = data.obj.loginUser.id;
+					record = data.obj.groupChatInfoList;
+					for(i = 0; i < record.length; i++) {
+						record[i].loginUserID = data.obj.loginUser.id;
+					}
+					//渲染历史数据
+					bindMsgList();
+					//解决打开聊天框时，最后一行聊天记录遮挡
+					ui.footer.style.height = (ui.h.offsetHeight + footerPadding+20) + 'px';
+					ui.content.style.paddingBottom = ui.footer.style.height;
+					
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					console.log("请求失败!!！" + textStatus);
+				}
+			});
+
+		}, 1000);
 
 
 	});
@@ -432,29 +419,19 @@ function timetrans(date) {
 	return Y + M + D + h + m + s;
 }
 
-function getWebSocket (loginUserID) {
+function getWebSocket () {
 	if('WebSocket' in window) {
+		var loginUserID = null;
+		
+		//登录成功打开下面两行代码
+		//var loginuserinfo = JSON.parse(localStorage.getItem('loginuserinfo'));
+		// loginUserID = loginuserinfo.user.id;
+		loginUserID = 27;
+		
 		var url = _wsUrl +loginUserID;
 		console.log(url);
 		var webSocket = new WebSocket(url);
-		console.log(webSocket);
-		//连接发生错误的回调方法
-		webSocket.onerror = function() {
-			//		vHead.$Message.info("WebSocket连接发生错误")
-			console.log("WebSocket连接发生错误")
-		};
-
-		//连接成功建立的回调方法
-		webSocket.onopen = function() {
-			console.log("socket连接")
-		}
-
 		
-
-		//连接关闭的回调方法
-		webSocket.onclose = function() {
-			console.log("onclose")
-		}
 	} else {
 		console.log("当前浏览器不支持socket通信")
 	}
@@ -463,15 +440,3 @@ function getWebSocket (loginUserID) {
 }
 
 
-// 参数：prop = 属性，val = 值
-function createJson(str1,prop, val) {
-    // 如果 val 被忽略
-    if(typeof val === "undefined") {
-        // 删除属性
-        delete str1[prop];
-    }
-    else {
-        // 添加 或 修改
-        str1[prop] = val;
-    }
-}
