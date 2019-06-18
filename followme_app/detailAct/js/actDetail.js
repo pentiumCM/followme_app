@@ -6,8 +6,6 @@ mui.plusReady(function() {
 
 	var _self = plus.webview.currentWebview();
 	actID = _self.actID;
-	console.log("zi页面页面接收的id:", actID);
-
 	pullupRefresh();
 
 });
