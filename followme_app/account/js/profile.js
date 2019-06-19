@@ -31,7 +31,6 @@ mui.plusReady(function() {
 	var wv = plus.webview.currentWebview();
 
 	if(userHasLogined()) {
-		console.log("进行用户名填充方法");
 
 		document.getElementById("userName").innerText = getLoginUid();
 		document.getElementById("userName").style.size = '20px';
@@ -98,6 +97,5 @@ document.addEventListener('logout-event', function(event) {
 
 //执行刷新
 window.addEventListener('refresh', function(e) { //执行刷新
-	console.log("执行刷新方法");
 	location.reload();
 });
