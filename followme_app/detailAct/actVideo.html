@@ -19,20 +19,20 @@
 	<body>
 		<div id="content" style="position: relative;">
 			<!--上部的播放视频部分-->
-			<div id="video">
+			<div id="video" style="z-index: 1;position: relative;">
 				<div id="videoPlayer"></div>
 			</div>
 
-			<div id="descript">
+			<div id="descript" style="z-index: 999;position: absolute;">
 
 <!--				<div id="exit">
 					<img src="../images/exit.png" />
 				</div>-->
 				<div id="club">
 					<input type="checkbox" name="" id="" value="" />&nbsp;
-					<label id="clubName">俱乐部</label>
+					<label id="clubName" style="color: white;">俱乐部</label>
 				</div>
-				<div id="introduce">
+				<div id="introduce" style="color: white;">
 					<h4>简介</h4>
 					<label id="beginTime">2019.5.1</label>
 					<label id="beginCity">北京出发</label>
@@ -42,8 +42,8 @@
 				</div>
 
 				<!--<hr />-->
-				<div id="comment">
-					<img src="../images/say.png" />
+				<div id="comment" style="background-color: black;">
+					<img src="../images/say.png"  />
 					<input id="mess" class="mui-input-clear" type="text" placeholder="说点什么。。。">
 					<img src="../images/collect.png" />
 					<img src="../images/foot_comment.png" />
