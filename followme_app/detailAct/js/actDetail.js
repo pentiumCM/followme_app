@@ -48,7 +48,7 @@ function pullupRefresh() {
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				console.log("请求失败!!" + textStatus);
 			}
-		})
+		});
 	}, 1000);
 }
 
@@ -95,3 +95,63 @@ function exit() {
 	console.log("退出页面方法完成");
 }
 
+// 立即购买点击事件
+document.getElementById("pay").addEventListener('tap', function() {
+	console.log('立即购买')
+	pay();
+});
+
+function pay() {
+	let url = _alipay_url + '/aliWapPay/wapPay';
+	let data = {
+		subject: '这是订单名称',
+		body: '这是商品描述',
+		outTradeNo: getNowDate(),
+		totalAmount: '12.5',
+	};
+	console.log(url);
+	console.log($("#actCost").text())
+	console.log('=============');
+	mui.ajax({
+		url: url,
+		type: 'post', //HTTP请求类型
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		data: JSON.stringify(data),
+		dataType: 'json', //服务器返回json格式数据
+		timeout: 1000000,
+		success: function(data) {
+			paySuc(data);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.log("请求失败!!！" + textStatus);
+		}
+	});
+}
+
+function paySuc(data) {
+	console.log(data.result);
+	let div = document.createElement('pay'); // 创建div
+	div.innerHTML = data.result; // 将返回的form 放入div
+	document.body.appendChild(div);
+	document.forms[0].submit();
+}
+
+/**
+ * 获取当前时间，返回时间字符串,先默认设置为商户订单号
+ * @returns {string} 时间字符串
+ * @constructor
+ */
+function getNowDate() {
+	var vNow = new Date();
+	var sNow = "";
+	sNow += String(vNow.getFullYear());
+	sNow += String(vNow.getMonth() + 1);
+	sNow += String(vNow.getDate());
+	sNow += String(vNow.getHours());
+	sNow += String(vNow.getMinutes());
+	sNow += String(vNow.getSeconds());
+	sNow += String(vNow.getMilliseconds());
+	return sNow;
+}

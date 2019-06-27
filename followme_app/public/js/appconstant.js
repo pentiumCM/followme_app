@@ -2,9 +2,12 @@
 
 
 /*URL配置*/
-var _base_ip = "192.168.31.109";
-var _base_port = "8080";
+var _base_ip = "118.126.112.250";
+var _base_port = "2000";
 var _base_url = "http://" + _base_ip + ":" + _base_port;			//http:192.168.1.111:8080/
+
+// 支付宝请求_alipay_url
+var _alipay_url = 'http://112.86.129.73:2000/jit_ssm';
 
 //账号登录
 var _accountLogin_url = _base_url + "/followme/account/login/accountLogin";		

@@ -84,9 +84,10 @@ function createVideoPlayer(videoPath) {
 		videoPlayer = plus.video.createVideoPlayer('videoplayer', {
 			src: videoPath,
 			width: '100%',
-			height: '70%',
+			height: '100%',
 			position: 'static',
-			autoplay: true
+			autoplay: true,
+			
 		});
 		plus.webview.currentWebview().append(videoPlayer);
 	}
