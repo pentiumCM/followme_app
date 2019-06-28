@@ -15,12 +15,24 @@ mui.plusReady(function() {
 				url: "clubDetail.html",
 				extras: {
 					actID: actID
+				},
+				styles: {
+					top: '45px', //子页面顶部位置
+					bottom: '0px', //子页面底部位置
+					width: '100%',
+					height: '100%'
 				}
 			}, {
 				id: "actVideo.html", //这是子页2的路径
 				url: "actVideo.html",
 				extras: {
 					actID: actID
+				},
+				styles: {
+					top: '45px', //子页面顶部位置
+					bottom: '0px', //子页面底部位置
+					width: '100%',
+					height: '100%'
 				}
 			},
 			{
@@ -28,6 +40,12 @@ mui.plusReady(function() {
 				url: "actDetail.html",
 				extras: {
 					actID: actID
+				},
+				styles: {
+					top: '45px', //子页面顶部位置
+					bottom: '0px', //子页面底部位置
+					width: '100%',
+					height: '100%'
 				}
 			}
 
