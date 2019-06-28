@@ -17,15 +17,19 @@
 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
+		<script src="../public/js/mui.js"></script>
+		<script src="../public/js/open.page.js" type="text/jscript" charset="UTF-8"></script>
+
+		<script src="../public/js/appconstant.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="js/indexRecommend.js" type="text/javascript" charset="UTF-8"></script>
 	</head>
 
 	<body>
 
 		<!--主体部分-->
-
-		<div class="mui-content" >
+		<div class="mui-content">
 			<!--搜索部分-->
-			<div id="search" class=" mui-row" >
+			<div id="search" class=" mui-row">
 				<div id="searchBar" class="mui-col-xs-9">
 					<input id="inputsearch" type="search" class="mui-input-clear whiteBg" placeholder="国内赏花指南">
 				</div>
@@ -36,22 +40,17 @@
 			</div>
 			<!--内容展现部分，每行两个-->
 			<!--下拉刷新容器-->
-			<div id="pullrefresh" class="mui-content mui-scroll-wrapper" >
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
 				<!--下拉刷新需要使用统一的DOM结构即下拉刷新只会滚动mui-scroll容器-->
-				<div class="mui-scroll" >
+				<div class="mui-scroll">
 					<div class="mui-table-view mui-table-view-chevron">
-                         <!--动态加载数据-->
-						
+						<!--动态加载数据-->
+
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<script src="../public/js/mui.js"></script>
-		<script src="../public/js/open.page.js" type="text/jscript" charset="UTF-8"></script>
-		
-		<script src="../public/js/appconstant.js" type="text/javascript" charset="UTF-8"></script>
-		<script src="js/indexRecommend.js" type="text/javascript" charset="UTF-8"></script>
 	</body>
 
 </html>
